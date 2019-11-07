@@ -9,12 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+   @IBOutlet var nomeTextField: UITextField! //force run app
+    @IBOutlet var felicidadeTextFiel: UITextField!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+   @IBAction func adicionar(){
+    let nome = nomeTextField.text // para pegar somente o texto
+    let felicidade = felicidadeTextFiel.text
+        print("Comi \(nome) e fiquei com felicidade: \(felicidade)")
     }
-
 
 }
 
