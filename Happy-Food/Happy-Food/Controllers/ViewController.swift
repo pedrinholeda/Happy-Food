@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-   @IBOutlet var nomeTextField: UITextField! //force run app
+   @IBOutlet var nomeTextField: UITextField! //forced unwrap
     @IBOutlet var felicidadeTextFiel: UITextField!
 
    @IBAction func adicionar(){
