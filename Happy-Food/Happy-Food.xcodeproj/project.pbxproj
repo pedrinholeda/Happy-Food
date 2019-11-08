@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E41395982375D01400853B8B /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41395972375D01400853B8B /* Refeicao.swift */; };
 		E413959C2375D16500853B8B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413959B2375D16500853B8B /* Item.swift */; };
+		E41395E22375FC7400853B8B /* RefeicoesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41395E12375FC7400853B8B /* RefeicoesTableViewController.swift */; };
 		E4354A3023734A9B000BA2E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4354A2F23734A9B000BA2E9 /* AppDelegate.swift */; };
 		E4354A3223734A9B000BA2E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4354A3123734A9B000BA2E9 /* SceneDelegate.swift */; };
 		E4354A3423734A9B000BA2E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4354A3323734A9B000BA2E9 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		E41395972375D01400853B8B /* Refeicao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refeicao.swift; sourceTree = "<group>"; };
 		E413959B2375D16500853B8B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		E41395E12375FC7400853B8B /* RefeicoesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefeicoesTableViewController.swift; sourceTree = "<group>"; };
 		E4354A2C23734A9B000BA2E9 /* Happy-Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy-Food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4354A2F23734A9B000BA2E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4354A3123734A9B000BA2E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				E4354A3323734A9B000BA2E9 /* ViewController.swift */,
+				E41395E12375FC7400853B8B /* RefeicoesTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				E413959C2375D16500853B8B /* Item.swift in Sources */,
 				E4354A3423734A9B000BA2E9 /* ViewController.swift in Sources */,
 				E4354A3023734A9B000BA2E9 /* AppDelegate.swift in Sources */,
+				E41395E22375FC7400853B8B /* RefeicoesTableViewController.swift in Sources */,
 				E4354A3223734A9B000BA2E9 /* SceneDelegate.swift in Sources */,
 				E41395982375D01400853B8B /* Refeicao.swift in Sources */,
 			);
