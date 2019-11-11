@@ -17,7 +17,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - Atributos
     
     var delegate: AdicionaRefeicaoDelegate?
-    var itens: [String] = ["Molho de Tomate","Molho Branco","Molho Apimentado","Queijo","Manjericão"]
+
+    var itens: [Item] = [Item(nome: "Molho de Tomate", calorias: 40.0),
+                            Item(nome: "Molho Branco", calorias: 40.0),
+                            Item(nome: "Molho Apimentado", calorias: 40.0),
+                            Item(nome: "Queijo", calorias: 40.0),
+                            Item(nome: "Manjericão", calorias: 40.0)]
+    
+    
+    var itensSelecionados: [Item] = []
     
     // MARK: - IBOutlets
     
@@ -34,8 +42,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let linhaDaTabela = indexPath.row
         let item = itens[linhaDaTabela]
 
-        celula.textLabel?.text = item
-
+        celula.textLabel?.text = item.nome
         return celula
     }
     
@@ -46,8 +53,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //colocando check na opcão escolhida
         if celula.accessoryType == .none{
             celula.accessoryType = .checkmark
+
+            let linhaDaTabela = indexPath.row
+            itensSelecionados.append(itens[linhaDaTabela])
         }else{
             celula.accessoryType = .none
+            
+            let item = itens[indexPath.row]
+            if let position = itensSelecionados.firstIndex(of: item){
+                itensSelecionados.remove(at: position)
+//                //teste
+//                for itemSelecionado in itensSelecionados{
+//                    print(itemSelecionado.nome)
+//                }
+            }
             
         }
     }
@@ -66,7 +85,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return
         }
 
-    let refeicao = Refeicao(nome:nomeDaRefeicao,felicidade: felicidade)
+    let refeicao = Refeicao(nome:nomeDaRefeicao,felicidade: felicidade, itens: itensSelecionados)
+    
     print("Comi \(refeicao.nome) e fiquei com felicidade: \(refeicao.felicidade)")
 
     delegate?.add(refeicao)

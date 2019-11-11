@@ -11,12 +11,13 @@ import UIKit
 class Refeicao: NSObject {
        let nome:String
        let felicidade: Int
-       let itens: Array<Item> = []
+       var itens: Array<Item> = []
        
        //MARK - Construtor
-       init(nome:String, felicidade: Int) {
+    init(nome:String, felicidade: Int, itens: [Item] = []){ //item ja inicializado 
            self.nome = nome
            self.felicidade = felicidade
+           self.itens = itens
        }
        //MARK - Metodos
        func totalDeCalorias() -> Double{
