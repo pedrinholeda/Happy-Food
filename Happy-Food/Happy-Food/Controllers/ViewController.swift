@@ -8,16 +8,21 @@
 
 import UIKit
 
+protocol AdicionaRefeicaoDelegate { //protocolo de comunicação
+     func add(_ refeicao: Refeicao)
+}
+
 class ViewController: UIViewController {
     
-    var tableViewController: RefeicoesTableViewController?
+    var delegate: AdicionaRefeicaoDelegate?
     
    @IBOutlet var nomeTextField: UITextField?
    @IBOutlet var felicidadeTextFiel: UITextField?
 
    @IBAction func adicionar(){
 
-        guard let nomeDaRefeicao = nomeTextField?.text else {
+    
+    guard let nomeDaRefeicao = nomeTextField?.text else {
             return
         }
 
@@ -28,7 +33,7 @@ class ViewController: UIViewController {
     let refeicao = Refeicao(nome:nomeDaRefeicao,felicidade: felicidade)
     print("Comi \(refeicao.nome) e fiquei com felicidade: \(refeicao.felicidade)")
 
-    tableViewController?.add(refeicao)
+    delegate?.add(refeicao)
     
     navigationController?.popViewController(animated: true) //retirar a tela de cima
     
