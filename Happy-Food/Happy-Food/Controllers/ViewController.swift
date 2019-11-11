@@ -12,7 +12,7 @@ protocol AdicionaRefeicaoDelegate { //protocolo de comunicação
      func add(_ refeicao: Refeicao)
 }
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Atributos
     
@@ -38,6 +38,20 @@ class ViewController: UIViewController, UITableViewDataSource {
 
         return celula
     }
+    
+    // MARK: - UITableViewDelegate
+    //identifica o clique do usuario
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let celula = tableView.cellForRow(at: indexPath) else {return}
+        //colocando check na opcão escolhida
+        if celula.accessoryType == .none{
+            celula.accessoryType = .checkmark
+        }else{
+            celula.accessoryType = .none
+            
+        }
+    }
+    
     
     // MARK: - IBActions
 

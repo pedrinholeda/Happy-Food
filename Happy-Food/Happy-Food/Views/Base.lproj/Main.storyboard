@@ -63,6 +63,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="bD8-6C-xHn"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ERd-Uw-ZD6"/>
                                 </connections>
                             </tableView>
                         </subviews>
