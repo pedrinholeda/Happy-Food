@@ -36,7 +36,22 @@ class RefeicoesTableViewController: UITableViewController , AdicionaRefeicaoDele
     
     @objc func mostrarDetalhes(_ gesture: UILongPressGestureRecognizer){
         if gesture.state == .began { // longo toque (so inicio)
-            print("funcionou")
+            let celula = gesture.view as! UITableViewCell
+            guard let indexPath = tableView.indexPath(for: celula) else { return }
+            let refeicao = refeicoes[indexPath.row]
+            
+            var mensagem = "Felicidade: \(refeicao.felicidade)"
+            
+            for item in refeicao.itens {
+                mensagem += ", \(item.nome) - calorias: \(item.calorias)"
+            }
+            
+            let alerta = UIAlertController(title: refeicao.nome , message: mensagem, preferredStyle: .alert)
+            
+            let botaoCancelar = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            alerta.addAction(botaoCancelar)
+            present(alerta, animated: true, completion: nil)
+            
         }
     }
     
