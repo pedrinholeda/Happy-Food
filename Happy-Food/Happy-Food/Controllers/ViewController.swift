@@ -52,13 +52,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let tableView = itensTableView{ //tratamento de erro
             tableView.reloadData()
         }else{
-            let alerta = UIAlertController(title: "Desculpe", message: "Não foi possivel atualizar a tabela", preferredStyle: .alert)
-            
-            let ok = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-            
-            alerta.addAction(ok)
-           
-            present(alerta, animated: true, completion: nil )
+            Alerta(controller: self).exibe(titulo: "Desculpe", mensagem: "Não foi possivel atualizar a tabela")
         }
      }
     
@@ -103,36 +97,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     // MARK: - IBActions
-
-   @IBAction func adicionar(){
-
     
-    guard let nomeDaRefeicao = nomeTextField?.text else {
-            return
-        }
+    func reculperaRefeicaoDoFormulario() -> Refeicao? {
+        guard let nomeDaRefeicao = nomeTextField?.text else {
+            return nil
+               }
 
         guard let felicidadeDaRefeicao = felicidadeTextFiel?.text, let felicidade = Int (felicidadeDaRefeicao) else {
-            return
+               return nil
+               }
+
+        let refeicao = Refeicao(nome:nomeDaRefeicao,felicidade: felicidade, itens: itensSelecionados)
+        
+        return refeicao
+    }
+
+    @IBAction func adicionar(){
+     if let refeicao = reculperaRefeicaoDoFormulario() {
+      delegate?.add(refeicao)
+      navigationController?.popViewController(animated: true) //retirar a tela de cima
+    } else {
+        Alerta(controller: self).exibe(mensagem: "Não foi possivel adicionar esta refeição")
         }
-
-    let refeicao = Refeicao(nome:nomeDaRefeicao,felicidade: felicidade, itens: itensSelecionados)
-    
-    print("Comi \(refeicao.nome) e fiquei com felicidade: \(refeicao.felicidade)")
-
-    delegate?.add(refeicao)
-    
-    navigationController?.popViewController(animated: true) //retirar a tela de cima
-    
-//    if let nomeDaRefeicao = nomeTextField?.text, let felicidadeDaRefeicao = felicidadeTextFiel?.text{
-//
-//        let nome = nomeDaRefeicao
-//        if let felicidade = Int(felicidadeDaRefeicao){
-//            let refeicao = Refeicao(nome:nome,felicidade: felicidade)
-//             print("Comi \(refeicao.nome) e fiquei com felicidade: \(refeicao.felicidade)")
-//        } else {
-//            print("Error ao criar refeição")
-//            }
-//        }
     }
 }
 

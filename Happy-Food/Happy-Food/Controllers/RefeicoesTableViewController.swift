@@ -40,16 +40,22 @@ class RefeicoesTableViewController: UITableViewController , AdicionaRefeicaoDele
             guard let indexPath = tableView.indexPath(for: celula) else { return }
             let refeicao = refeicoes[indexPath.row]
             
-            
             let alerta = UIAlertController(title: refeicao.nome , message: refeicao.detalhes(), preferredStyle: .alert)
             
-            let botaoCancelar = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            let botaoCancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
             alerta.addAction(botaoCancelar)
+    
+            let botaoRemover = UIAlertAction(title: "Remover", style: .destructive,
+                handler:{ alerta in //closure
+                    self.refeicoes.remove(at: indexPath.row)
+                    self.tableView.reloadData()
+            })
+            alerta.addAction(botaoRemover)
             present(alerta, animated: true, completion: nil)
-            
         }
     }
     
+   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? ViewController{
             viewController.delegate = self // falando que a variavel e a instancia
