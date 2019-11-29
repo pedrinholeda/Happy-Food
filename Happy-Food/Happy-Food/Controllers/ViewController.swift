@@ -41,6 +41,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad(){
         let botaoAdicionarItem = UIBarButtonItem(title: "adicionar", style: .plain, target: self, action: #selector((adicionarItens)))
         navigationItem.rightBarButtonItem = botaoAdicionarItem
+        
+        
+        do{
+            guard let diretorio = reculperaDiretorio() else { return }
+            let dados = try Data(contentsOf: diretorio)
+            let intensSalvos =  try
+                NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(dados) as! Array<Item> //convertendo o tipo para array de item
+            itens = intensSalvos
+            
+        }catch{
+            print(error.localizedDescription)
+        }
     }
     @objc func adicionarItens(){
         let adicionarItensViewController = AdicionarItensViewController(delegate: self)
@@ -54,8 +66,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }else{
             Alerta(controller: self).exibe(titulo: "Desculpe", mensagem: "Não foi possivel atualizar a tabela")
         }
-        
-        
+        do{
+           let dados = try NSKeyedArchiver.archivedData(withRootObject: itens, requiringSecureCoding: false)
+           guard let caminho = reculperaDiretorio() else { return }
+           try  dados.write(to: caminho)
+        }catch{
+            print(error.localizedDescription)
+        }
         
      }
     

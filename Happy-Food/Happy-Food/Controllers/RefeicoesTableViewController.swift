@@ -14,8 +14,7 @@ class RefeicoesTableViewController: UITableViewController , AdicionaRefeicaoDele
                      Refeicao(nome: "Churros", felicidade: 4)]
     //exibindo arquivos salvos na tela
     override func viewDidLoad() {
-         guard let diretorio = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {return} // retorna a primeira url que ele achar
-         let caminho = diretorio.appendingPathComponent("refeicao") //criando uma pasta para salvar os arquivos
+        guard let caminho = recuperaCaminho() else { return }
         do{
             let dados = try Data(contentsOf: caminho)
             guard let refeicoesSalvas = try
@@ -28,6 +27,11 @@ class RefeicoesTableViewController: UITableViewController , AdicionaRefeicaoDele
        
     }
     
+    func recuperaCaminho() -> URL? {
+        guard let diretorio = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {return nil} // retorna a primeira url que ele achar
+        let caminho = diretorio.appendingPathComponent("refeicao") //criando uma pasta para salvar os arquivos
+        return caminho
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return refeicoes.count
@@ -48,8 +52,7 @@ class RefeicoesTableViewController: UITableViewController , AdicionaRefeicaoDele
         refeicoes.append(refeicao)
         tableView.reloadData() // recarregando informaçoes da table apos add
        //salvando arquivos em um diretorio
-        guard let diretorio = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {return} // retorna a primeira url que ele achar
-        let caminho = diretorio.appendingPathComponent("refeicao") //criando uma pasta para salvar os arquivos
+       guard let caminho = recuperaCaminho() else { return }
        
         do{
             let dados = try NSKeyedArchiver.archivedData(withRootObject: refeicoes, requiringSecureCoding: false) // converter em dados
