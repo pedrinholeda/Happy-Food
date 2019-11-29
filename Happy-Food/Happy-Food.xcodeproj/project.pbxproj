@@ -17,6 +17,7 @@
 		E4354A3923734A9C000BA2E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4354A3823734A9C000BA2E9 /* Assets.xcassets */; };
 		E4354A3C23734A9C000BA2E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4354A3A23734A9C000BA2E9 /* LaunchScreen.storyboard */; };
 		E49A115D2390367300F59525 /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49A115C2390367300F59525 /* Alerta.swift */; };
+		E49A115F2390710100F59525 /* RemoveRefeicaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49A115E2390710100F59525 /* RemoveRefeicaoViewController.swift */; };
 		E4FB09AF2379E24D00162459 /* AdicionarItensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FB09AD2379E24D00162459 /* AdicionarItensViewController.swift */; };
 		E4FB09B02379E24D00162459 /* AdicionarItensViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4FB09AE2379E24D00162459 /* AdicionarItensViewController.xib */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,7 @@
 		E4354A3D23734A9C000BA2E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4354A432373A7AA000BA2E9 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = "../../../../Library/Autosave Information/MyPlayground.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E49A115C2390367300F59525 /* Alerta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
+		E49A115E2390710100F59525 /* RemoveRefeicaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveRefeicaoViewController.swift; sourceTree = "<group>"; };
 		E4FB09AD2379E24D00162459 /* AdicionarItensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionarItensViewController.swift; sourceTree = "<group>"; };
 		E4FB09AE2379E24D00162459 /* AdicionarItensViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdicionarItensViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,7 @@
 				E4354A3323734A9B000BA2E9 /* ViewController.swift */,
 				E41395E12375FC7400853B8B /* RefeicoesTableViewController.swift */,
 				E4FB09AD2379E24D00162459 /* AdicionarItensViewController.swift */,
+				E49A115E2390710100F59525 /* RemoveRefeicaoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				E49A115D2390367300F59525 /* Alerta.swift in Sources */,
 				E413959C2375D16500853B8B /* Item.swift in Sources */,
 				E4354A3423734A9B000BA2E9 /* ViewController.swift in Sources */,
+				E49A115F2390710100F59525 /* RemoveRefeicaoViewController.swift in Sources */,
 				E4FB09AF2379E24D00162459 /* AdicionarItensViewController.swift in Sources */,
 				E4354A3023734A9B000BA2E9 /* AppDelegate.swift in Sources */,
 				E41395E22375FC7400853B8B /* RefeicoesTableViewController.swift in Sources */,

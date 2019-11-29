@@ -54,7 +54,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }else{
             Alerta(controller: self).exibe(titulo: "Desculpe", mensagem: "Não foi possivel atualizar a tabela")
         }
+        
+        
+        
      }
+    
+    func reculperaDiretorio() -> URL? {
+        guard let diretorio = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {return nil} // retorna a primeira url que ele achar
+        let caminho = diretorio.appendingPathComponent("itens") //criando uma pasta para salvar os arquivos
+        
+        return caminho
+    }
+    
     
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

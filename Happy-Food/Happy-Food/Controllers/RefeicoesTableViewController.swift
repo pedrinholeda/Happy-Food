@@ -12,6 +12,21 @@ class RefeicoesTableViewController: UITableViewController , AdicionaRefeicaoDele
     var refeicoes = [Refeicao(nome: "Macarrao", felicidade: 3),
                      Refeicao(nome: "Pizza", felicidade: 5),
                      Refeicao(nome: "Churros", felicidade: 4)]
+    //exibindo arquivos salvos na tela
+    override func viewDidLoad() {
+         guard let diretorio = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {return} // retorna a primeira url que ele achar
+         let caminho = diretorio.appendingPathComponent("refeicao") //criando uma pasta para salvar os arquivos
+        do{
+            let dados = try Data(contentsOf: caminho)
+            guard let refeicoesSalvas = try
+                NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(dados) as?
+                    Array<Refeicao> else {return}
+            refeicoes = refeicoesSalvas
+        }catch{
+            print(error.localizedDescription)
+        }
+       
+    }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,7 +47,19 @@ class RefeicoesTableViewController: UITableViewController , AdicionaRefeicaoDele
     func add(_ refeicao: Refeicao){
         refeicoes.append(refeicao)
         tableView.reloadData() // recarregando informaçoes da table apos add
-    }
+       //salvando arquivos em um diretorio
+        guard let diretorio = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {return} // retorna a primeira url que ele achar
+        let caminho = diretorio.appendingPathComponent("refeicao") //criando uma pasta para salvar os arquivos
+       
+        do{
+            let dados = try NSKeyedArchiver.archivedData(withRootObject: refeicoes, requiringSecureCoding: false) // converter em dados
+            try dados.write(to: caminho) // salvando dados na url
+            
+        }catch{
+            print(error.localizedDescription)
+        }
+        }
+       
     
     @objc func mostrarDetalhes(_ gesture: UILongPressGestureRecognizer){
         if gesture.state == .began { // longo toque (so inicio)
@@ -40,18 +67,13 @@ class RefeicoesTableViewController: UITableViewController , AdicionaRefeicaoDele
             guard let indexPath = tableView.indexPath(for: celula) else { return }
             let refeicao = refeicoes[indexPath.row]
             
-            let alerta = UIAlertController(title: refeicao.nome , message: refeicao.detalhes(), preferredStyle: .alert)
-            
-            let botaoCancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-            alerta.addAction(botaoCancelar)
-    
-            let botaoRemover = UIAlertAction(title: "Remover", style: .destructive,
-                handler:{ alerta in //closure
+            RemoveRefeicaoViewController(controller: self).exibe(refeicao, handler:
+                { alert in
                     self.refeicoes.remove(at: indexPath.row)
                     self.tableView.reloadData()
+                
             })
-            alerta.addAction(botaoRemover)
-            present(alerta, animated: true, completion: nil)
+           
         }
     }
     
