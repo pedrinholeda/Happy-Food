@@ -9,28 +9,10 @@
 import UIKit
 
 class RefeicoesTableViewController: UITableViewController , AdicionaRefeicaoDelegate{
-    var refeicoes = [Refeicao(nome: "Macarrao", felicidade: 3),
-                     Refeicao(nome: "Pizza", felicidade: 5),
-                     Refeicao(nome: "Churros", felicidade: 4)]
+    var refeicoes: [Refeicao] = []
     //exibindo arquivos salvos na tela
     override func viewDidLoad() {
-        guard let caminho = recuperaCaminho() else { return }
-        do{
-            let dados = try Data(contentsOf: caminho)
-            guard let refeicoesSalvas = try
-                NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(dados) as?
-                    Array<Refeicao> else {return}
-            refeicoes = refeicoesSalvas
-        }catch{
-            print(error.localizedDescription)
-        }
-       
-    }
-    
-    func recuperaCaminho() -> URL? {
-        guard let diretorio = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {return nil} // retorna a primeira url que ele achar
-        let caminho = diretorio.appendingPathComponent("refeicao") //criando uma pasta para salvar os arquivos
-        return caminho
+        refeicoes = RefeicaoDao().recupera()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,16 +33,7 @@ class RefeicoesTableViewController: UITableViewController , AdicionaRefeicaoDele
     func add(_ refeicao: Refeicao){
         refeicoes.append(refeicao)
         tableView.reloadData() // recarregando informaçoes da table apos add
-       //salvando arquivos em um diretorio
-       guard let caminho = recuperaCaminho() else { return }
-       
-        do{
-            let dados = try NSKeyedArchiver.archivedData(withRootObject: refeicoes, requiringSecureCoding: false) // converter em dados
-            try dados.write(to: caminho) // salvando dados na url
-            
-        }catch{
-            print(error.localizedDescription)
-        }
+        RefeicaoDao().save(refeicoes)
         }
        
     
