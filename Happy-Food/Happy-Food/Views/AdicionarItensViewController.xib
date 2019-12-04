@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="ipad10_2" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -16,45 +16,62 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnC-Aw-WvK">
-                    <rect key="frame" x="57" y="153" width="51" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnC-Aw-WvK">
+                    <rect key="frame" x="57" y="131" width="51" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calorias:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BL-6h-INm">
-                    <rect key="frame" x="57" y="208" width="67" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sS8-Dx-Efr">
-                    <rect key="frame" x="156" y="153" width="201" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sS8-Dx-Efr">
+                    <rect key="frame" x="156" y="124" width="597" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6P0-ty-pA5">
-                    <rect key="frame" x="156" y="195" width="201" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6P0-ty-pA5">
+                    <rect key="frame" x="156" y="166" width="597" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hs-DS-aPZ">
-                    <rect key="frame" x="175" y="291" width="65" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hs-DS-aPZ">
+                    <rect key="frame" x="372.5" y="264" width="65" height="30"/>
                     <state key="normal" title="Adicionar"/>
                     <connections>
                         <action selector="adicionarItem:" destination="-1" eventType="touchUpInside" id="eB4-fg-SY3"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicionar itens" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MyD-tc-wiM">
+                    <rect key="frame" x="337.5" y="51" width="135.5" height="28"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calorias:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BL-6h-INm">
+                    <rect key="frame" x="57" y="173" width="67" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3BL-6h-INm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="57" id="JDl-Bp-448"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6P0-ty-pA5" secondAttribute="trailing" constant="57" id="JeU-xb-ti6"/>
+                <constraint firstItem="MyD-tc-wiM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Lgg-kE-0LP"/>
+                <constraint firstItem="sS8-Dx-Efr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="124" id="Tko-nM-tvp"/>
+                <constraint firstItem="EnC-Aw-WvK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="57" id="bAe-IO-g1v"/>
+                <constraint firstItem="3hs-DS-aPZ" firstAttribute="top" secondItem="6P0-ty-pA5" secondAttribute="bottom" constant="64" id="bsk-Go-mCE"/>
+                <constraint firstItem="3BL-6h-INm" firstAttribute="top" secondItem="EnC-Aw-WvK" secondAttribute="bottom" constant="21" id="dox-Gi-k3t"/>
+                <constraint firstItem="MyD-tc-wiM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="51" id="fYO-Ew-V0k"/>
+                <constraint firstItem="3hs-DS-aPZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="g4k-46-hvy"/>
+                <constraint firstItem="6P0-ty-pA5" firstAttribute="leading" secondItem="3BL-6h-INm" secondAttribute="trailing" constant="32" id="hUZ-dG-02I"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sS8-Dx-Efr" secondAttribute="trailing" constant="57" id="nAN-iL-D5k"/>
+                <constraint firstItem="sS8-Dx-Efr" firstAttribute="leading" secondItem="EnC-Aw-WvK" secondAttribute="trailing" constant="48" id="wg1-Ji-BZe"/>
+                <constraint firstItem="6P0-ty-pA5" firstAttribute="top" secondItem="sS8-Dx-Efr" secondAttribute="bottom" constant="8" id="zEV-LG-o9C"/>
+                <constraint firstItem="EnC-Aw-WvK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="131" id="zUy-8b-hEV"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="140.57971014492756" y="153.34821428571428"/>
         </view>
