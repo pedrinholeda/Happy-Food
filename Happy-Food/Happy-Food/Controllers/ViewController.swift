@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - View life cycle
     
     override func viewDidLoad(){
-        let botaoAdicionarItem = UIBarButtonItem(title: "adicionar", style: .plain, target: self, action: #selector((adicionarItens)))
+        let botaoAdicionarItem = UIBarButtonItem(title: "Novo Item", style: .plain, target: self, action: #selector((adicionarItens)))
         navigationItem.rightBarButtonItem = botaoAdicionarItem
         recuperaItens()
         
@@ -127,6 +127,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         Alerta(controller: self).exibe(mensagem: "Não foi possivel adicionar esta refeição")
         }
     }
+    
+    
+    // Retirar teclaco com o toque fora
 
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
