@@ -38,6 +38,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let botaoAdicionarItem = UIBarButtonItem(title: "adicionar", style: .plain, target: self, action: #selector((adicionarItens)))
         navigationItem.rightBarButtonItem = botaoAdicionarItem
         recuperaItens()
+        
+        super.viewDidLoad()
+
+        self.hideKeyboardWhenTappedAround()
+
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard)))
     }
     
     func recuperaItens(){
@@ -121,6 +127,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         Alerta(controller: self).exibe(mensagem: "Não foi possivel adicionar esta refeição")
         }
     }
+
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
 }
 
 

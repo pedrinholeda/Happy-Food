@@ -36,8 +36,19 @@ class AdicionarItensViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard)))
+    }
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
 
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
     //MARK: -IBAction
     
     @IBAction func adicionarItem(_ sender: Any) {
